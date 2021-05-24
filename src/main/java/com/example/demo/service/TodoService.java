@@ -3,10 +3,18 @@ package com.example.demo.service;
 import com.example.demo.dal.model.Todo;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface TodoService {
-    public List<Todo> allTodo();
-    public Todo addNewTodo(Todo todo);
-    public boolean changeStatus(Todo todo);
-    public boolean deleteTodo(Todo todo);
+    List<Todo> allTodo();
+
+    Todo addNewTodo(Todo todo);
+
+    boolean changeStatus(Todo todo);
+
+    boolean updateTodo(Todo todo);
+
+    void deleteTodo(Todo todo);
+
+    Optional<Todo> getTodoById(long todoId);
 }

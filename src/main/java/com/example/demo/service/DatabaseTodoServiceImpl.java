@@ -6,12 +6,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
+
 public class DatabaseTodoServiceImpl implements TodoService {
 
     private final TodoRepository todoRepository;
+
 
     @Override
     public List<Todo> allTodo() {
@@ -25,11 +28,23 @@ public class DatabaseTodoServiceImpl implements TodoService {
 
     @Override
     public boolean changeStatus(Todo todo) {
-        return false;
+        return true;
     }
 
     @Override
-    public boolean deleteTodo(Todo todo) {
-        return false;
+
+    public void deleteTodo(Todo todo) {
+        this.todoRepository.delete(todo);
     }
+
+    @Override
+    public Optional<Todo> getTodoById(long todoId) {
+        return this.todoRepository.findById(todoId);
+    }
+
+    @Override
+    public boolean updateTodo(Todo todo) {
+        return true;
+    }
+
 }
