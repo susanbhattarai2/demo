@@ -12,7 +12,8 @@ public interface TodoService {
 
     boolean changeStatus(Todo todo);
 
-    boolean updateTodo(Todo todo);
+
+    Todo updateTodo(Todo todo);
 
     void deleteTodo(Todo todo);
 

@@ -43,8 +43,8 @@ public class DatabaseTodoServiceImpl implements TodoService {
     }
 
     @Override
-    public boolean updateTodo(Todo todo) {
-        return true;
+    public Todo updateTodo(Todo todo) {
+       return this.todoRepository.save(todo);
     }
 
 }

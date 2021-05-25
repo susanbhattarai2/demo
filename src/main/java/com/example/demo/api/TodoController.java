@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -27,5 +28,11 @@ public class TodoController {
     @DeleteMapping("/todo_id={todoId}")
     public void deleteTodo(@PathVariable long todoId) {
         this.todoService.getTodoById(todoId).ifPresent(this.todoService::deleteTodo);
+    }
+
+    @PutMapping("/todo_id={todoId}")
+    public Todo updateTodo(@PathVariable long todoId,@RequestBody Todo todo){
+     this.todoService.getTodoById(todoId).ifPresent(this.todoService::updateTodo);
+        return todoService.updateTodo(todo);
     }
 }
